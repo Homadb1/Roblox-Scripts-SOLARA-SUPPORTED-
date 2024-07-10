@@ -1,0 +1,17 @@
+-- Click On g To remove all sheild users
+loadstring(game:HttpGet('https://raw.githubusercontent.com/elliexmln/PrizzLife/main/pladmin.lua'))()
+game:GetService("UserInputService").InputBegan:connect(function(inputObject, gameProcessedEvent)
+ if gameProcessedEvent then return end
+ if inputObject.KeyCode == Enum.KeyCode.G then
+  for _,player in pairs(game.Players:GetPlayers()) do
+   local minecraft = game.Workspace:FindFirstChild(player.Name).Torso:FindFirstChild("ShieldFolder")
+   if minecraft then
+    minecraft:Destroy()
+   end
+   local fortnite = game.Workspace:FindFirstChild(player.Name):FindFirstChild("Riot Shield")
+   if fortnite then
+    fortnite:Destroy()
+   end
+  end
+ end
+end)
